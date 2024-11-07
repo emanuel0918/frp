@@ -26,7 +26,7 @@ import (
 
 const tomlServerContent = `
 bindAddr = "127.0.0.1"
-kcpBindPort = 7000
+kcpBindPort = 1985
 quicBindPort = 7001
 tcpmuxHTTPConnectPort = 7005
 custom404Page = "/abc.html"
@@ -35,7 +35,7 @@ transport.tcpKeepalive = 10
 
 const yamlServerContent = `
 bindAddr: 127.0.0.1
-kcpBindPort: 7000
+kcpBindPort: 1985
 quicBindPort: 7001
 tcpmuxHTTPConnectPort: 7005
 custom404Page: /abc.html
@@ -46,7 +46,7 @@ transport:
 const jsonServerContent = `
 {
   "bindAddr": "127.0.0.1",
-  "kcpBindPort": 7000,
+  "kcpBindPort": 1985,
   "quicBindPort": 7001,
   "tcpmuxHTTPConnectPort": 7005,
   "custom404Page": "/abc.html",
@@ -72,7 +72,7 @@ func TestLoadServerConfig(t *testing.T) {
 			err := LoadConfigure([]byte(test.content), &svrCfg, true)
 			require.NoError(err)
 			require.EqualValues("127.0.0.1", svrCfg.BindAddr)
-			require.EqualValues(7000, svrCfg.KCPBindPort)
+			require.EqualValues(1985, svrCfg.KCPBindPort)
 			require.EqualValues(7001, svrCfg.QUICBindPort)
 			require.EqualValues(7005, svrCfg.TCPMuxHTTPConnectPort)
 			require.EqualValues("/abc.html", svrCfg.Custom404Page)
@@ -116,7 +116,7 @@ func TestCustomStructStrictMode(t *testing.T) {
 	require := require.New(t)
 
 	proxyStr := `
-serverPort = 7000
+serverPort = 1985
 
 [[proxies]]
 name = "test"
@@ -132,7 +132,7 @@ remotePort = 6000
 	require.Error(err)
 
 	visitorStr := `
-serverPort = 7000
+serverPort = 1985
 
 [[visitors]]
 name = "test"
@@ -148,7 +148,7 @@ serverName = "server"
 	require.Error(err)
 
 	pluginStr := `
-serverPort = 7000
+serverPort = 1985
 
 [[proxies]]
 name = "test"

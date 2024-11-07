@@ -42,7 +42,7 @@ type ClientCommonConfig struct {
 	// default, this value is "0.0.0.0".
 	ServerAddr string `json:"serverAddr,omitempty"`
 	// ServerPort specifies the port to connect to the server on. By default,
-	// this value is 7000.
+	// this value is 1985.
 	ServerPort int `json:"serverPort,omitempty"`
 	// STUN server to help penetrate NAT hole.
 	NatHoleSTUNServer string `json:"natHoleStunServer,omitempty"`
@@ -74,7 +74,7 @@ type ClientCommonConfig struct {
 
 func (c *ClientCommonConfig) Complete() {
 	c.ServerAddr = util.EmptyOr(c.ServerAddr, "0.0.0.0")
-	c.ServerPort = util.EmptyOr(c.ServerPort, 7000)
+	c.ServerPort = util.EmptyOr(c.ServerPort, 1985)
 	c.LoginFailExit = util.EmptyOr(c.LoginFailExit, lo.ToPtr(true))
 	c.NatHoleSTUNServer = util.EmptyOr(c.NatHoleSTUNServer, "stun.easyvoip.com:3478")
 

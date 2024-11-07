@@ -7,7 +7,7 @@ user = "your_name"
 # in square brackets, as in "[::1]:80", "[ipv6-host]:http" or "[ipv6-host%zone]:80"
 # For single serverAddr field, no need square brackets, like serverAddr = "::".
 serverAddr = "0.0.0.0"
-serverPort = 7000
+serverPort = 1985
 
 # STUN server to help penetrate NAT hole.
 # natHoleStunServer = "stun.easyvoip.com:3478"

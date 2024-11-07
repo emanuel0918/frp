@@ -38,7 +38,7 @@ type ClientCommonConf struct {
 	// default, this value is "0.0.0.0".
 	ServerAddr string `ini:"server_addr" json:"server_addr"`
 	// ServerPort specifies the port to connect to the server on. By default,
-	// this value is 7000.
+	// this value is 1985.
 	ServerPort int `ini:"server_port" json:"server_port"`
 	// STUN server to help penetrate NAT hole.
 	NatHoleSTUNServer string `ini:"nat_hole_stun_server" json:"nat_hole_stun_server"`

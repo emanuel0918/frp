@@ -22,7 +22,7 @@ var _ = ginkgo.Describe("[Feature: Cmd]", func() {
 			path := f.GenerateConfigFile(`
 			[common]
 			bind_addr = 0.0.0.0
-			bind_port = 7000
+			bind_port = 1985
 			`)
 			_, output, err := f.RunFrps("verify", "-c", path)
 			framework.ExpectNoError(err)
@@ -32,7 +32,7 @@ var _ = ginkgo.Describe("[Feature: Cmd]", func() {
 			path := f.GenerateConfigFile(`
 			[common]
 			bind_addr = 0.0.0.0
-			bind_port = 70000
+			bind_port = 1985
 			`)
 			_, output, err := f.RunFrps("verify", "-c", path)
 			framework.ExpectNoError(err)
@@ -42,7 +42,7 @@ var _ = ginkgo.Describe("[Feature: Cmd]", func() {
 			path := f.GenerateConfigFile(`
 			[common]
 			server_addr = 0.0.0.0
-			server_port = 7000
+			server_port = 1985
 			`)
 			_, output, err := f.RunFrpc("verify", "-c", path)
 			framework.ExpectNoError(err)
@@ -52,7 +52,7 @@ var _ = ginkgo.Describe("[Feature: Cmd]", func() {
 			path := f.GenerateConfigFile(`
 			[common]
 			server_addr = 0.0.0.0
-			server_port = 7000
+			server_port = 1985
 			protocol = invalid
 			`)
 			_, output, err := f.RunFrpc("verify", "-c", path)

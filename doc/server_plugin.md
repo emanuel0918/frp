@@ -218,7 +218,7 @@ New user connection received from proxy (support `tcp`, `stcp`, `https` and `tcp
 
 ```toml
 # frps.toml
-bindPort = 7000
+bindPort = 1985
 
 [[httpPlugins]]
 name = "user-manager"
@@ -251,7 +251,7 @@ This is an example of metadata entries:
 ```toml
 # frpc.toml
 serverAddr = "127.0.0.1"
-serverPort = 7000
+serverPort = 1985
 user = "fake"
 metadatas.token = "fake"
 metadatas.version = "1.0.0"

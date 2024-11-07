@@ -29,7 +29,7 @@ type ServerConfig struct {
 	// this value is "0.0.0.0".
 	BindAddr string `json:"bindAddr,omitempty"`
 	// BindPort specifies the port that the server listens on. By default, this
-	// value is 7000.
+	// value is 1985.
 	BindPort int `json:"bindPort,omitempty"`
 	// KCPBindPort specifies the KCP port that the server listens on. If this
 	// value is 0, the server will not listen for KCP connections.
@@ -106,7 +106,7 @@ func (c *ServerConfig) Complete() {
 	c.SSHTunnelGateway.Complete()
 
 	c.BindAddr = util.EmptyOr(c.BindAddr, "0.0.0.0")
-	c.BindPort = util.EmptyOr(c.BindPort, 7000)
+	c.BindPort = util.EmptyOr(c.BindPort, 1985)
 	if c.ProxyBindAddr == "" {
 		c.ProxyBindAddr = c.BindAddr
 	}

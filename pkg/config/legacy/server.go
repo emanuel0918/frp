@@ -40,7 +40,7 @@ type ServerCommonConf struct {
 	// this value is "0.0.0.0".
 	BindAddr string `ini:"bind_addr" json:"bind_addr"`
 	// BindPort specifies the port that the server listens on. By default, this
-	// value is 7000.
+	// value is 1985.
 	BindPort int `ini:"bind_port" json:"bind_port"`
 	// KCPBindPort specifies the KCP port that the server listens on. If this
 	// value is 0, the server will not listen for KCP connections. By default,

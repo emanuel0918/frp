@@ -21,7 +21,7 @@ var _ = ginkgo.Describe("[Feature: Cmd]", func() {
 		ginkgo.It("frps valid", func() {
 			path := f.GenerateConfigFile(`
 			bindAddr = "0.0.0.0"
-			bindPort = 7000
+			bindPort = 1985
 			`)
 			_, output, err := f.RunFrps("verify", "-c", path)
 			framework.ExpectNoError(err)
@@ -30,7 +30,7 @@ var _ = ginkgo.Describe("[Feature: Cmd]", func() {
 		ginkgo.It("frps invalid", func() {
 			path := f.GenerateConfigFile(`
 			bindAddr = "0.0.0.0"
-			bindPort = 70000
+			bindPort = 1985
 			`)
 			_, output, err := f.RunFrps("verify", "-c", path)
 			framework.ExpectNoError(err)
@@ -39,7 +39,7 @@ var _ = ginkgo.Describe("[Feature: Cmd]", func() {
 		ginkgo.It("frpc valid", func() {
 			path := f.GenerateConfigFile(`
 			serverAddr = "0.0.0.0"
-			serverPort = 7000
+			serverPort = 1985
 			`)
 			_, output, err := f.RunFrpc("verify", "-c", path)
 			framework.ExpectNoError(err)
@@ -48,7 +48,7 @@ var _ = ginkgo.Describe("[Feature: Cmd]", func() {
 		ginkgo.It("frpc invalid", func() {
 			path := f.GenerateConfigFile(`
 			serverAddr = "0.0.0.0"
-			serverPort = 7000
+			serverPort = 1985
 			transport.protocol = "invalid"
 			`)
 			_, output, err := f.RunFrpc("verify", "-c", path)

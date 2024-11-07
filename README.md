@@ -145,7 +145,7 @@ Some antiviruses improperly mark frpc as malware and delete it. This is due to f
 
   ```toml
   # frps.toml
-  bindPort = 7000
+  bindPort = 1985
   ```
 
 2. Start `frps` on server A:
@@ -157,7 +157,7 @@ Some antiviruses improperly mark frpc as malware and delete it. This is due to f
   ```toml
   # frpc.toml
   serverAddr = "x.x.x.x"
-  serverPort = 7000
+  serverPort = 1985
 
   [[proxies]]
   name = "ssh"
@@ -184,7 +184,7 @@ This example implements multiple SSH services exposed through the same port usin
 1. Deploy frps on a machine with a public IP and modify the frps.toml file. Here is a simplified configuration:
 
   ```toml
-  bindPort = 7000
+  bindPort = 1985
   tcpmuxHTTPConnectPort = 5002
   ```
 
@@ -192,7 +192,7 @@ This example implements multiple SSH services exposed through the same port usin
 
   ```toml
   serverAddr = "x.x.x.x"
-  serverPort = 7000
+  serverPort = 1985
 
   [[proxies]]
   name = "ssh1"
@@ -207,7 +207,7 @@ This example implements multiple SSH services exposed through the same port usin
 
   ```toml
   serverAddr = "x.x.x.x"
-  serverPort = 7000
+  serverPort = 1985
 
   [[proxies]]
   name = "ssh2"
@@ -236,7 +236,7 @@ Unfortunately, we cannot resolve a domain name to a local IP. However, we can us
 
   ```toml
   # frps.toml
-  bindPort = 7000
+  bindPort = 1985
   vhostHTTPPort = 8080
   ```
 
@@ -251,7 +251,7 @@ Unfortunately, we cannot resolve a domain name to a local IP. However, we can us
   ```toml
   # frpc.toml
   serverAddr = "x.x.x.x"
-  serverPort = 7000
+  serverPort = 1985
 
   [[proxies]]
   name = "web"
@@ -274,7 +274,7 @@ Unfortunately, we cannot resolve a domain name to a local IP. However, we can us
 
   ```toml
   # frps.toml
-  bindPort = 7000
+  bindPort = 1985
   ```
 
 2. Start `frps`:
@@ -286,7 +286,7 @@ Unfortunately, we cannot resolve a domain name to a local IP. However, we can us
   ```toml
   # frpc.toml
   serverAddr = "x.x.x.x"
-  serverPort = 7000
+  serverPort = 1985
 
   [[proxies]]
   name = "dns"
@@ -315,7 +315,7 @@ Configure `frps` as above.
   ```toml
   # frpc.toml
   serverAddr = "x.x.x.x"
-  serverPort = 7000
+  serverPort = 1985
 
   [[proxies]]
   name = "unix_domain_socket"
@@ -341,7 +341,7 @@ Configure `frps` as described above, then:
   ```toml
   # frpc.toml
   serverAddr = "x.x.x.x"
-  serverPort = 7000
+  serverPort = 1985
 
   [[proxies]]
   name = "test_static_file"
@@ -366,7 +366,7 @@ You may substitute `https2https` for the plugin, and point the `localAddr` to a 
   ```toml
   # frpc.toml
   serverAddr = "x.x.x.x"
-  serverPort = 7000
+  serverPort = 1985
 
   [[proxies]]
   name = "test_https2http"
@@ -395,7 +395,7 @@ Configure `frps` same as above.
   ```toml
   # frpc.toml
   serverAddr = "x.x.x.x"
-  serverPort = 7000
+  serverPort = 1985
 
   [[proxies]]
   name = "secret_ssh"
@@ -410,7 +410,7 @@ Configure `frps` same as above.
   ```toml
   # frpc.toml
   serverAddr = "x.x.x.x"
-  serverPort = 7000
+  serverPort = 1985
 
   [[visitors]]
   name = "secret_ssh_visitor"
@@ -436,7 +436,7 @@ Note that it may not work with all types of NAT devices. You might want to fallb
   ```toml
   # frpc.toml
   serverAddr = "x.x.x.x"
-  serverPort = 7000
+  serverPort = 1985
   # set up a new stun server if the default one is not available.
   # natHoleStunServer = "xxx"
 
@@ -453,7 +453,7 @@ Note that it may not work with all types of NAT devices. You might want to fallb
   ```toml
   # frpc.toml
   serverAddr = "x.x.x.x"
-  serverPort = 7000
+  serverPort = 1985
   # set up a new stun server if the default one is not available.
   # natHoleStunServer = "xxx"
 
@@ -495,7 +495,7 @@ Environment variables can be referenced in the configuration file, using Go's st
 ```toml
 # frpc.toml
 serverAddr = "{{ .Envs.FRP_SERVER_ADDR }}"
-serverPort = 7000
+serverPort = 1985
 
 [[proxies]]
 name = "ssh"
@@ -522,7 +522,7 @@ You can split multiple proxy configs into different files and include them in th
 ```toml
 # frpc.toml
 serverAddr = "x.x.x.x"
-serverPort = 7000
+serverPort = 1985
 includes = ["./confd/*.toml"]
 ```
 
@@ -832,9 +832,9 @@ KCP mode uses UDP as the underlying transport. Using KCP in frp:
 
   ```toml
   # frps.toml
-  bindPort = 7000
+  bindPort = 1985
   # Specify a UDP port for KCP.
-  kcpBindPort = 7000
+  kcpBindPort = 1985
   ```
 
   The `kcpBindPort` number can be the same number as `bindPort`, since `bindPort` field specifies a TCP port.
@@ -845,7 +845,7 @@ KCP mode uses UDP as the underlying transport. Using KCP in frp:
   # frpc.toml
   serverAddr = "x.x.x.x"
   # Same as the 'kcpBindPort' in frps.toml
-  serverPort = 7000
+  serverPort = 1985
   transport.protocol = "kcp"
   ```
 
@@ -859,9 +859,9 @@ Using QUIC in frp:
 
   ```toml
   # frps.toml
-  bindPort = 7000
+  bindPort = 1985
   # Specify a UDP port for QUIC.
-  quicBindPort = 7000
+  quicBindPort = 1985
   ```
 
   The `quicBindPort` number can be the same number as `bindPort`, since `bindPort` field specifies a TCP port.
@@ -872,7 +872,7 @@ Using QUIC in frp:
   # frpc.toml
   serverAddr = "x.x.x.x"
   # Same as the 'quicBindPort' in frps.toml
-  serverPort = 7000
+  serverPort = 1985
   transport.protocol = "quic"
   ```
 
@@ -1131,14 +1131,14 @@ For example:
 
 ```toml
 # frps.toml
-bindPort = 7000
+bindPort = 1985
 tcpmuxHTTPConnectPort = 1337
 ```
 
 ```toml
 # frpc.toml
 serverAddr = "x.x.x.x"
-serverPort = 7000
+serverPort = 1985
 
 [[proxies]]
 name = "proxy1"
@@ -1171,7 +1171,7 @@ It only works when protocol is tcp.
 ```toml
 # frpc.toml
 serverAddr = "x.x.x.x"
-serverPort = 7000
+serverPort = 1985
 transport.proxyURL = "http://user:pwd@192.168.1.128:8080"
 ```
 
